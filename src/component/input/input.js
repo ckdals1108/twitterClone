@@ -36,7 +36,6 @@ const Input = () => {
         <div className={styles.input}>
             <div className={styles.textarea}><textarea id="content" onChange={contentHandler}/></div>
             <div className={styles.submit}><input type="password" id="pwd" className={styles.password} onChange={passwordHandler}/><button onClick={clickHandler}>보내기</button></div>
-            
         </div>
     );
 };
