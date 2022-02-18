@@ -6,6 +6,7 @@ import axios from 'axios';
 const Input = () => {
     const [content,setContent] = useState(null);
     const [password,setPassword] = useState(null);
+    const nickname = useRef();
 
     const contentHandler = (e) => {
         e.preventDefault();
@@ -19,7 +20,7 @@ const Input = () => {
 
     const clickHandler = (e) => {
         e.preventDefault();
-        axios.post('/api/board',JSON.stringify({"content":content,"password":password}),
+        axios.post('/api/board',JSON.stringify({"nickname":nickname.current.value,"content":content,"password":password}),
         {
             headers:{
                 "Content-Type" : `application/json`,
@@ -34,8 +35,9 @@ const Input = () => {
 
     return (
         <div className={styles.input}>
-            <div className={styles.textarea}><textarea id="content" onChange={contentHandler}/></div>
-            <div className={styles.submit}><input type="password" id="pwd" className={styles.password} onChange={passwordHandler}/><button onClick={clickHandler}>보내기</button></div>
+            <textarea id="content" onChange={contentHandler}/>
+            <input type="text" id="nickname" ref={nickname} className={styles.nickname} placeholder="닉네임"/>
+            <input type="password" id="pwd" className={styles.password} onChange={passwordHandler} placeholder="비밀번호"/><button onClick={clickHandler}>전송</button>
         </div>
     );
 };

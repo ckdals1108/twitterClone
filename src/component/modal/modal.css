@@ -47,6 +47,7 @@
     width: 30px;
     font-size: 21px;
     font-weight: 700;
+    margin-right: 10px;
     text-align: center;
     color: #999;
     background-color: transparent;
@@ -59,6 +60,7 @@
     width: 30px;
     font-size: 21px;
     font-weight: 700;
+    margin-right: 10px;
     text-align: center;
     background-color: transparent;
   }

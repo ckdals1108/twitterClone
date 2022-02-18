@@ -1,0 +1,30 @@
+.showbox > li{
+    list-style-type:none;
+}
+
+.showbox > li > button {
+    float:right;
+    color: #fff;
+    background-color: #6c757d;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.comment div button{
+    width:px;
+}
+
+
+.showbox div {
+    display: flex;
+}
+
+.showbox div input {
+    width:100px;
+    height:20px;
+}
+
+.showbox textarea{
+    width:50%;
+    height:20px;
+}

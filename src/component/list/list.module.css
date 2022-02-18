@@ -9,5 +9,9 @@
 
 .showbox > li > button {
     float:right;
+    color: #fff;
+    background-color: #6c757d;
+    border-radius: 5px;
+    font-size: 13px;
 }
 

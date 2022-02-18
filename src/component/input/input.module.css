@@ -3,24 +3,36 @@
     height:100%;
     grid-column: 2;
     grid-row: 2;
-    vertical-align: middle;
-    overflow:hidden;
+    margin:0 auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
-.textarea {
-    width : 50%;
-    height : 50%;
-    margin-top: 30px;
-    float:left;
-    margin-left: 80px;
-    padding:10px;
-    vertical-align: middle;
-}
-
-.textarea > textarea {
-    width : 100%;
-    height : 100%;
+.input > textarea {
+    margin-left: 150px;
+    width : 60%;
+    height : 80%;
     resize:none;
+    
+}
+
+.send {
+    display:inline;
+}
+
+.nickname{
+    margin-left: 10px;
+    width: 100px;
+}
+
+.input > button {
+    vertical-align: middle;
+    padding: 3px 12px;
+    color: #fff;
+    background-color: #6c757d;
+    border-radius: 5px;
+    font-size: 13px;
 }
 
 .password{

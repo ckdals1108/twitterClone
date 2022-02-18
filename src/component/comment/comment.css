@@ -1,0 +1,52 @@
+.comment {
+    margin-left: 20px;
+}
+section {
+    display: inline-block;
+}
+
+.comment .in {
+    display: inline-block;
+}
+
+main {
+    display: inline-block;
+}
+
+.comment button {
+outline: none;
+cursor: pointer;
+border: 0;
+display: inline-block;
+float:right;
+}
+.comment > section > footer button {
+color: #fff;
+background-color: #6c757d;
+border-radius: 5px;
+font-size: 13px;
+}
+
+.showbox {
+    display: flex;
+    margin-top: 1px;
+    height:30px;
+}
+
+.showbox button {
+    width:50px;
+    margin-left: 5px;
+}
+
+.showbox input {
+    width:100px;
+    height:20px;
+}
+
+.showbox textarea{
+    width:50%;
+    height:20px;
+}
+.delete{
+    margin-top: 3px;
+}

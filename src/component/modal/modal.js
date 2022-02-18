@@ -16,7 +16,7 @@ const Modal = (props) => {
         const data = error.response.data;
         const message = data.map(({defaultMessage}) => defaultMessage);
         const blankMessage = message.filter((x,idx) => {return idx === 1});
-        alert(message.length===2? blankMessage : message);
+        alert(message.length===2 ? blankMessage : message);
     }
 
     const postUsers = async() => {
@@ -55,15 +55,15 @@ const Modal = (props) => {
             <input type="password" id="pwd" className='password' ref={passwordRef}/>
               <button className="edit" onClick={postUsers}>
                 {' '}
-                edit{' '}
+                수정{' '}
               </button>
               <button className="delete" onClick={deleteUsers}>
                 {' '}
-                delete{' '}
+                삭제{' '}
               </button>
               <button className="close" onClick={close}>
                 {' '}
-                close{' '}
+                닫기{' '}
               </button>
             </footer>
           </section>
