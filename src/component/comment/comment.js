@@ -61,7 +61,6 @@ const Comment = (props) => {
             <input type="password" ref={commentpassword} placeholder="비밀번호"/>
             <button onClick={editHandller}>{' '}수정{' '}</button><button onClick={deleteHandller}>{' '}삭제{' '}</button><button onClick={editButtonHandller}>{' '}닫기{' '}</button></div>
             : <>{comment.nickname} : {comment.content}<button className="delete" onClick={editButtonHandller}>{' '}수정/삭제{' '}</button></>}</main>
-
           </section>
         ) : null}
         <br></br>
