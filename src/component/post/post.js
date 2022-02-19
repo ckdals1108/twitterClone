@@ -7,7 +7,7 @@ import Modal from '../modal/modal';
 const Post = (Props) => {
     const [open, setOpen] = useState(false);
     const list = Props;
-    const [comment, setComment] = useState([]);
+    const [comment, setComment] = useState([""]);
     const [modalOpen,setModalOpen] = useState(false);    
     const commentText = useRef();
     const commentpassword = useRef();
@@ -20,7 +20,7 @@ const Post = (Props) => {
     }
 
     const fetchComment = () => {
-        const listGet = axios.get(`/api/comments/${list.list.id}`)
+        const listGet = axios.get(`http://localhost:8080/api/comments/${list.list.id}`)
         .then(data => {
           setComment(data.data);
         });
@@ -44,7 +44,7 @@ const Post = (Props) => {
 
     const clickHandler = (e) => {
       e.preventDefault();
-      axios.post(`/api/comment/${list.list.id}`,JSON.stringify({"nickname":commentnickname.current.value,"content":commentText.current.value,"password":commentpassword.current.value}),
+      axios.post(`http://localhost:8080/api/comment/${list.list.id}`,JSON.stringify({"nickname":commentnickname.current.value,"content":commentText.current.value,"password":commentpassword.current.value}),
       {
           headers:{
               "Content-Type" : `application/json`,

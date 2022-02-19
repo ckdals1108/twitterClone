@@ -20,7 +20,7 @@ const Input = () => {
 
     const clickHandler = (e) => {
         e.preventDefault();
-        axios.post('/api/board',JSON.stringify({"nickname":nickname.current.value,"content":content,"password":password}),
+        axios.post('http://localhost:8080/api/board',JSON.stringify({"nickname":nickname.current.value,"content":content,"password":password}),
         {
             headers:{
                 "Content-Type" : `application/json`,

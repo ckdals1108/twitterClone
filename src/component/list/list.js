@@ -1,15 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import styles from './list.module.css';
-import Modal from  '../modal/modal';
-import Comment from '../comment/comment';
 import Post from '../post/post';
 
 const List = () => {
     const [list, setList] = useState([]);
     
     const fetchUsers = () => {
-        const listGet = axios.get('/api/boards')
+        const listGet = axios.get('http://localhost:8080/api/boards')
         .then(data => {
             setList(data.data);
         });
