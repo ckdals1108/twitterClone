@@ -17,7 +17,7 @@ const Modal = (props) => {
     }
 
     const postUsers = async() => {
-        const fetchdelete = await axios.put(`http://localhost:8080/api/board/${id}`,JSON.stringify({"content":contentRef.current.value,"password":passwordRef.current.value}),
+        const fetchdelete = await axios.put(`${process.env.REACT_APP_API_HOST}/api/board/${id}`,JSON.stringify({"content":contentRef.current.value,"password":passwordRef.current.value}),
         {
             headers:{
                 "Content-Type" : `application/json`,
@@ -29,7 +29,7 @@ const Modal = (props) => {
     }
 
     const deleteUsers = async() => {
-        const fetchdelete = await axios.delete(`http://localhost:8080/api/board/${id}`, {data:{"password":passwordRef.current.value}})
+        const fetchdelete = await axios.delete(`${process.env.REACT_APP_API_HOST}/api/board/${id}`, {data:{"password":passwordRef.current.value}})
         .then((res) => {alert("삭제가 완료되었습니다.")})
         .catch(error => {
             errorMessage(error);

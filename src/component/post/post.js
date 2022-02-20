@@ -20,7 +20,7 @@ const Post = (Props) => {
     }
 
     const fetchComment = () => {
-        const listGet = axios.get(`http://localhost:8080/api/comments/${list.list.id}`)
+        const listGet = axios.get(`${process.env.REACT_APP_API_HOST}/api/comments/${list.list.id}`)
         .then(data => {
           setComment(data.data);
         });
@@ -44,7 +44,7 @@ const Post = (Props) => {
 
     const clickHandler = (e) => {
       e.preventDefault();
-      axios.post(`http://localhost:8080/api/comment/${list.list.id}`,JSON.stringify({"nickname":commentnickname.current.value,"content":commentText.current.value,"password":commentpassword.current.value}),
+      axios.post(`${process.env.REACT_APP_API_HOST}/api/comment/${list.list.id}`,JSON.stringify({"nickname":commentnickname.current.value,"content":commentText.current.value,"password":commentpassword.current.value}),
       {
           headers:{
               "Content-Type" : `application/json`,

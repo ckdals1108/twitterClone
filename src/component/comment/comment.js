@@ -31,7 +31,7 @@ const Comment = (props) => {
     }
 
     const putUsers = async() => {
-      const fetchdelete = await axios.put(`http://localhost:8080/api/comment/${comment.id}`,JSON.stringify({"content":commentText.current.value,"password":commentpassword.current.value}),
+      const fetchdelete = await axios.put(`${process.env.REACT_APP_API_HOST}/api/comment/${comment.id}`,JSON.stringify({"content":commentText.current.value,"password":commentpassword.current.value}),
       {
           headers:{
               "Content-Type" : `application/json`,
@@ -44,7 +44,7 @@ const Comment = (props) => {
 
   
     const deleteUsers = async() => {
-      const fetchdelete = await axios.delete(`http://localhost:8080/api/comment/${comment.id}`, {data:{"password":commentpassword.current.value}})
+      const fetchdelete = await axios.delete(`${process.env.REACT_APP_API_HOST}/api/comment/${comment.id}`, {data:{"password":commentpassword.current.value}})
       .then((res) => {alert("삭제가 완료되었습니다.")})
       .catch(error => {
           errorMessage(error);

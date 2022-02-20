@@ -7,7 +7,7 @@ const List = () => {
     const [list, setList] = useState([]);
     
     const fetchUsers = () => {
-        const listGet = axios.get('http://localhost:8080/api/boards')
+        const listGet = axios.get(`${process.env.REACT_APP_API_HOST}/api/boards`)
         .then(data => {
             setList(data.data);
         });
