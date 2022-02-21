@@ -1,13 +1,19 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState , useCallback} from 'react';
 import styles from './list.module.css';
 import Post from '../post/post';
 
-const List = () => {
+const List = (Props) => {
     const [list, setList] = useState([]);
+    const {forceUpdate} = Props;
+    const [inputUpdate, setinputUpdate] = useState({});
+
+    const refresh = () => {
+        setinputUpdate({...inputUpdate});
+    }
     
-    const fetchUsers = () => {
-        const listGet = axios.get(`${process.env.REACT_APP_API_HOST}/api/boards`)
+    const fetchUsers = async() => {
+        const listGet = await axios.get(`${process.env.REACT_APP_API_HOST}/api/boards`)
         .then(data => {
             setList(data.data);
         });
@@ -17,10 +23,18 @@ const List = () => {
         fetchUsers();
     },[]);
 
+    useEffect(() => {
+        fetchUsers();
+    },[forceUpdate]);
+
+    useEffect(() => {
+        fetchUsers();
+    },[inputUpdate])
+
     return (
         <div className={styles.list}>
             <ul>
-                {list.map(list => (<Post key={list.id} list={list}/>))}
+                {list.map(list => (<Post key={list.id} list={list} listRefresh={refresh}/>))}
             </ul>
         </div>
     );

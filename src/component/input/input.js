@@ -3,9 +3,10 @@ import styles from './input.module.css'
 import { useRef } from 'react';
 import axios from 'axios';
 
-const Input = () => {
+const Input = (Props) => {
     const [content,setContent] = useState(null);
     const [password,setPassword] = useState(null);
+    const {forceUpdate} = Props;
     const nickname = useRef();
 
     const contentHandler = (e) => {
@@ -25,7 +26,7 @@ const Input = () => {
             headers:{
                 "Content-Type" : `application/json`,
             },
-        }).then((res) => alert("생성이 완료되었습니다."))
+        }).then((res) => {alert("생성이 완료되었습니다.");forceUpdate();})
         .catch();
         setContent("");
         setPassword("");

@@ -8,6 +8,7 @@ const Modal = (props) => {
     const { open, close, header, id} = props;
     const contentRef = useRef();
     const passwordRef = useRef();
+    const {refresh} = props;
 
     const errorMessage = (error) => {
         const data = error.response.data;
@@ -25,7 +26,8 @@ const Modal = (props) => {
         }).then((res) => alert("수정이 완료되었습니다."))
         .catch(error => {
             errorMessage(error);
-        });
+        })
+        refresh();
     }
 
     const deleteUsers = async() => {
@@ -33,7 +35,8 @@ const Modal = (props) => {
         .then((res) => {alert("삭제가 완료되었습니다.")})
         .catch(error => {
             errorMessage(error);
-        });
+        })
+        refresh();
     }
 
     return (

@@ -4,10 +4,11 @@ import axios from 'axios';
 
 
 const Comment = (props) => {
-    const {open, close, comment} = props;
+    const {open, comment} = props;
     const [editButton,setEditButton] = useState(false);
     const commentpassword = useRef();
     const commentText = useRef();
+    const {refresh} = props;
 
     const errorMessage = (error) => {
       const data = error.response.data;
@@ -40,6 +41,7 @@ const Comment = (props) => {
       .catch(error => {
           errorMessage(error);
       });
+      refresh();
     }
 
   
@@ -49,6 +51,7 @@ const Comment = (props) => {
       .catch(error => {
           errorMessage(error);
       });
+      refresh();
     }
 
     return (
